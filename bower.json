@@ -1,0 +1,21 @@
+{
+  "name": "learn-react",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Zhang Weihu <496781108@qq.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.14.3"
+  }
+}
