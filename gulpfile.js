@@ -17,7 +17,8 @@ var src = {
     js: 'src/app/**/*.js',
     jsEntry: 'src/app/app.js',
     html: 'src/**/*.html',
-    image: 'src/image/**'
+    image: 'src/image/**',
+    css: 'src/stylesheet/*.css'
 };
 
 var dest = {
@@ -25,7 +26,8 @@ var dest = {
     js: 'dist/js',
     html: 'dist/',
     all: 'dist/**',
-    image: 'dist/img'
+    image: 'dist/img',
+    css: 'dist/css'
 };
 
 gulp.task('clean', function() {
@@ -49,6 +51,11 @@ gulp.task('js', function () {
         .pipe(gulp.dest(dest.js));
 });
 
+gulp.task('css', function () {
+    gulp.src(src.css)
+        .pipe(gulp.dest(dest.css));
+});
+
 gulp.task('image', function () {
     gulp.src(src.image)
         .pipe(gulp.dest(dest.image));
@@ -59,7 +66,7 @@ gulp.task('html', function () {
         .pipe(gulp.dest(dest.html));
 });
 
-gulp.task('build', ['html', 'js', 'image']);
+gulp.task('build', ['html', 'js', 'image', 'css']);
 
 gulp.task('connect', function () {
     connect.server({
@@ -73,6 +80,7 @@ gulp.task('watch', function () {
     gulp.watch(src.js, ['js']);
     gulp.watch(src.html, ['html']);
     gulp.watch(src.image, ['image']);
+    gulp.watch(src.css, ['css']);
 
     gulp.watch([dest.all]).on('change', function(file) {
         gulp.src(file.path)
