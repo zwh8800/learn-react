@@ -1,6 +1,7 @@
-var React = require('react');
-var marked = require('marked');
+import React from 'react';
+import marked from 'marked';
 
+export default
 class Comment extends React.Component {
     rawMarkedUp() {
         var html = marked(this.props.children.toString(), {sanitize:true});
@@ -29,5 +30,3 @@ class Comment extends React.Component {
         );
     }
 }
-
-module.exports = Comment;

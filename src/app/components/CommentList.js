@@ -1,6 +1,7 @@
-var React = require('react');
-var Comment = require('./Comment.js');
+import React from 'react';
+import Comment from './Comment';
 
+export default
 class CommentList extends React.Component {
     render() {
         var comments = this.props.data.map(function (comment) {
@@ -21,5 +22,3 @@ class CommentList extends React.Component {
         );
     }
 }
-
-module.exports = CommentList;

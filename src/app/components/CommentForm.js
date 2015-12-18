@@ -1,5 +1,6 @@
 var React = require('react');
 
+export default
 class CommentForm extends React.Component {
     render() {
         return (
@@ -22,5 +23,3 @@ class CommentForm extends React.Component {
         );
     }
 }
-
-module.exports = CommentForm;

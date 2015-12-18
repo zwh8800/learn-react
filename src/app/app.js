@@ -1,9 +1,9 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-var Parent = require('./components/Parent.js');
-var CommentList = require('./components/CommentList.js');
-var CommentForm = require('./components/CommentForm.js');
+import Parent from './components/parent';
+import CommentList from './components/CommentList';
+import CommentForm from './components/CommentForm';
 
 var data = [
     {

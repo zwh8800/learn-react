@@ -1,5 +1,6 @@
-var React = require('react');
+import React from 'react';
 
+export default
 class Child extends React.Component {
     render() {
         return (
@@ -8,5 +9,3 @@ class Child extends React.Component {
     }
 
 }
-
-module.exports = Child;

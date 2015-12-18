@@ -1,6 +1,7 @@
-var React = require('react');
-var Child = require('./Child.js');
+import React from 'react';
+import Child from './child';
 
+export default
 class Parent extends React.Component {
     render() {
         return (
@@ -11,5 +12,3 @@ class Parent extends React.Component {
         );
     }
 }
-
-module.exports = Parent;
