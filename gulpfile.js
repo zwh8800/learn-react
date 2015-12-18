@@ -14,7 +14,8 @@ var buffer = require('vinyl-buffer');
 
 var src = {
     base: 'src/',
-    js: 'src/app/app.js',
+    js: 'src/app/**/*.js',
+    jsEntry: 'src/app/app.js',
     html: 'src/**/*.html'
 };
 
@@ -35,7 +36,7 @@ gulp.task('js', function () {
         .transform(babelify.configure({
             presets: ['es2015', 'react']
         }))
-        .require(src.js, { entry: true });
+        .require(src.jsEntry, { entry: true });
 
     return b.bundle()
         .pipe(source("bundle.js"))
