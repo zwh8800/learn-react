@@ -16,14 +16,16 @@ var src = {
     base: 'src/',
     js: 'src/app/**/*.js',
     jsEntry: 'src/app/app.js',
-    html: 'src/**/*.html'
+    html: 'src/**/*.html',
+    image: 'src/image/**'
 };
 
 var dest = {
     base: 'dist/',
     js: 'dist/js',
     html: 'dist/',
-    all: 'dist/**'
+    all: 'dist/**',
+    image: 'dist/img'
 };
 
 gulp.task('clean', function() {
@@ -41,10 +43,15 @@ gulp.task('js', function () {
     return b.bundle()
         .pipe(source("bundle.js"))
         .pipe(buffer())
-        .pipe(sourcemaps.init())
+        .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(uglify())
         .pipe(sourcemaps.write("."))
         .pipe(gulp.dest(dest.js));
+});
+
+gulp.task('image', function () {
+    gulp.src(src.image)
+        .pipe(gulp.dest(dest.image));
 });
 
 gulp.task('html', function () {
@@ -52,7 +59,7 @@ gulp.task('html', function () {
         .pipe(gulp.dest(dest.html));
 });
 
-gulp.task('build', ['html', 'js']);
+gulp.task('build', ['html', 'js', 'image']);
 
 gulp.task('connect', function () {
     connect.server({
@@ -65,6 +72,7 @@ gulp.task('connect', function () {
 gulp.task('watch', function () {
     gulp.watch(src.js, ['js']);
     gulp.watch(src.html, ['html']);
+    gulp.watch(src.image, ['image']);
 
     gulp.watch([dest.all]).on('change', function(file) {
         gulp.src(file.path)
