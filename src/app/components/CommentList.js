@@ -4,13 +4,11 @@ import Comment from './Comment';
 export default
 class CommentList extends React.Component {
     render() {
-        var comments = this.props.data.map(function (comment) {
-            return (
-                <Comment key={comment.id} author={comment.author} date={comment.date} avatar={comment.avatar}>
-                    {comment.content}
-                </Comment>
-            );
-        });
+        var comments = this.props.data.map(comment =>
+            <Comment key={comment.id} author={comment.author} date={comment.date} avatar={comment.avatar}>
+                {comment.content}
+            </Comment>
+        );
 
         return (
             <div className="ui comments">
