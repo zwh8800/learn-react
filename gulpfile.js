@@ -77,10 +77,14 @@ gulp.task('connect', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch(src.js, ['js']);
-    gulp.watch(src.html, ['html']);
-    gulp.watch(src.image, ['image']);
-    gulp.watch(src.css, ['css']);
+    gulp.watch(src.js, ['js'])
+        .on('error', swallowError);
+    gulp.watch(src.html, ['html'])
+        .on('error', swallowError);
+    gulp.watch(src.image, ['image'])
+        .on('error', swallowError);
+    gulp.watch(src.css, ['css'])
+        .on('error', swallowError);
 
     gulp.watch([dest.all]).on('change', function(file) {
         gulp.src(file.path)
@@ -91,3 +95,8 @@ gulp.task('watch', function () {
 gulp.task('server', ['connect', 'watch']);
 
 gulp.task('default', ['build']);
+
+function swallowError (error) {
+    console.log(error.toString());
+    this.emit('end');
+}
