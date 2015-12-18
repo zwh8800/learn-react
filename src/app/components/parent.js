@@ -1,15 +1,15 @@
 var React = require('react');
 var Child = require('./Child.js');
 
-var Parent = React.createClass({
-    render: function(){
+class Parent extends React.Component {
+    render() {
         return (
             <div>
-                <div> Hello World </div>
+                <div> Hello Meican </div>
                 <Child/>
             </div>
-        )
+        );
     }
-});
+}
 
 module.exports = Parent;
