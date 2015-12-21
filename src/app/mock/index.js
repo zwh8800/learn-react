@@ -1,5 +1,4 @@
-import Mock from 'mockjs/src/mock';
-import _ from 'mockjs/src/mockjax'
+import Mock from 'mockjs';
 import $ from 'jquery';
 
 export default
