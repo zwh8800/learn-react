@@ -38,7 +38,7 @@ gulp.task('clean', function() {
 gulp.task('js', function () {
     var b = browserify({ debug: true })
         .transform(babelify.configure({
-            presets: ['es2015', 'react']
+            presets: ['es2015', 'stage-0', 'react']
         }))
         .require(src.jsEntry, { entry: true });
 

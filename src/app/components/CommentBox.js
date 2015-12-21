@@ -8,30 +8,29 @@ class CommentBox extends React.Component {
     constructor(props) {
         super(props);
         this.state = {data: []};
-        this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
     }
     componentDidMount() {
         $.ajax({
             url: this.props.url,
             dataType: 'json',
             cache: false,
-            success: function(response) {
+            success: (response) => {
                 if (response.code == 200) {
                     this.setState({data: response.data});
                 }
-            }.bind(this),
-            error: function(xhr, status, err) {
+            },
+            error: (xhr, status, err) => {
                 console.error(this.props.url, status, err.toString());
-            }.bind(this)
+            }
         })
     }
-    handleCommentSubmit(comment) {
+    handleCommentSubmit = (comment) => {
         var comments = this.state.data;
         var last = comments[comments.length - 1];
         comment.id = last.id + 1;
         comments.push(comment);
         this.setState({data: comments});
-    }
+    };
     render() {
         return (
             <div>

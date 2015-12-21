@@ -5,17 +5,14 @@ class CommentForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {author: '', content: ''};
-        this.handleAuthorChange = this.handleAuthorChange.bind(this);
-        this.handleContentChange = this.handleContentChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
-    handleAuthorChange(e) {
+    handleAuthorChange = (e) => {
         this.setState({author: e.target.value});
-    }
-    handleContentChange(e) {
+    };
+    handleContentChange = (e) => {
         this.setState({content: e.target.value});
-    }
-    handleSubmit(e) {
+    };
+    handleSubmit = (e) => {
         e.preventDefault();
         var author = this.state.author.trim();
         var content = this.state.content.trim();
@@ -24,7 +21,7 @@ class CommentForm extends React.Component {
         }
         this.props.onCommentSubmit({author: author, content: content});
         this.setState({content: ''});
-    }
+    };
     render() {
         return (
             <div className="comment-form">
