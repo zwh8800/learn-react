@@ -7,9 +7,8 @@ export default
 class CommentBox extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            data: []
-        };
+        this.state = {data: []};
+        this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
     }
     componentDidMount() {
         $.ajax({
@@ -26,11 +25,18 @@ class CommentBox extends React.Component {
             }.bind(this)
         })
     }
+    handleCommentSubmit(comment) {
+        var comments = this.state.data;
+        var last = comments[comments.length - 1];
+        comment.id = last.id + 1;
+        comments.push(comment);
+        this.setState({data: comments});
+    }
     render() {
         return (
             <div>
                 <CommentList data={this.state.data} />
-                <CommentForm />
+                <CommentForm onCommentSubmit={this.handleCommentSubmit} />
             </div>
         );
     }
