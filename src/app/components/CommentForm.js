@@ -2,10 +2,7 @@ var React = require('react');
 
 export default
 class CommentForm extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {author: '', content: ''};
-    }
+    state = { author: '', content: '' };
     handleAuthorChange = (e) => {
         this.setState({author: e.target.value});
     };

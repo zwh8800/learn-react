@@ -5,10 +5,7 @@ import CommentForm from './CommentForm';
 
 export default
 class CommentBox extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {data: []};
-    }
+    state = { data: [] };
     componentDidMount() {
         $.ajax({
             url: this.props.url,
@@ -22,7 +19,7 @@ class CommentBox extends React.Component {
             error: (xhr, status, err) => {
                 console.error(this.props.url, status, err.toString());
             }
-        })
+        });
     }
     handleCommentSubmit = (comment) => {
         var comments = this.state.data;
