@@ -7,13 +7,25 @@ function MockServer() {
 
     Mock.mock('/api/comments', {
         'code': 200,
-        'data|1-10': [
+        'data|5-10': [
             {
                 'id|+1':0,
-                'author':'zzZ',
+                'author|1': [
+                    'zzZ',
+                    'hzzZ'
+                ],
                 'date':'上午11:43',
-                'avatar':'img/matt.jpg',
-                'content':'PHP是世界上 `最好` 的语言'
+                'avatar|1': [
+                    'img/matt.jpg',
+                    'img/elliot.jpg'
+                ],
+                'content|1': [
+                    'PHP是世界上`最好`的语言',
+                    '吔**屎**啦',
+                    '呵呵',
+                    '蛤蛤',
+                    '逗'
+                ]
             }
         ]
     });
