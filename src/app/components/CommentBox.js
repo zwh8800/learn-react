@@ -2,24 +2,21 @@ import React from 'react';
 import $ from 'jquery';
 import CommentList from './CommentList';
 import CommentForm from './CommentForm';
+import Api from '../Api'
 
 export default
 class CommentBox extends React.Component {
     state = { data: [] };
     componentDidMount() {
-        $.ajax({
-            url: this.props.url,
-            dataType: 'json',
-            cache: false,
-            success: (response) => {
+        Api.getComments()
+            .done((response) => {
                 if (response.code == 200) {
                     this.setState({data: response.data});
                 }
-            },
-            error: (xhr, status, err) => {
+            })
+            .fail((xhr, status, err) => {
                 console.error(this.props.url, status, err.toString());
-            }
-        });
+            });
     }
     handleCommentSubmit = (comment) => {
         var comments = this.state.data;

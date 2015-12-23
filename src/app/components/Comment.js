@@ -20,8 +20,7 @@ class Comment extends React.Component {
                     <div className="metadata">
                         <span className="date">{this.props.date}</span>
                     </div>
-                    <div className="text" dangerouslySetInnerHTML={this.rawMarkedUp()}>
-                    </div>
+                    <div className="text" dangerouslySetInnerHTML={this.rawMarkedUp()} />
                     <div className="actions">
                         <a className="reply">回复</a>
                     </div>
