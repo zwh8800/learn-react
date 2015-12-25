@@ -55,7 +55,6 @@ function getComments() {
                 resolve(response)
             })
             .fail((xhr, status, err) => {
-                console.error(status, err.toString());
                 reject(err);
             });
     });
@@ -67,7 +66,6 @@ function getPosts() {
                 resolve(response)
             })
             .fail((xhr, status, err) => {
-                console.error(status, err.toString());
                 reject(err);
             });
     });
@@ -101,11 +99,15 @@ runner(ajax);
 
 ////////////////// await & async //////////////////
 async function getArticle () {
-    var test = $('.test');
-    var comments = await getComments();
-    test.append('<p>' + JSON.stringify(comments) + '</p>');
-    var posts = await getPosts();
-    test.append('<p>' + JSON.stringify(posts) + '</p>');
+    try {
+        var test = $('.test');
+        var comments = await getComments();
+        test.append('<p>' + JSON.stringify(comments) + '</p>');
+        var posts = await getPosts();
+        test.append('<p>' + JSON.stringify(posts) + '</p>');
+    } catch (e) {
+        console.log('catch: ', e);
+    }
 }
 
 getArticle();
