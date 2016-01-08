@@ -28,6 +28,7 @@
     "jshint": "^2.8.0",
     "marked": "^0.3.5",
     "mockjs": "^0.1.10",
+    "notie": "^2.1.0",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "underscore": "^1.8.3",
